@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8">
+			<title>STEP Time Estimator</title>
+			<link rel="stylesheet" href="style.css">
+</head>
+	<body>
+		<h1>Оценка времени печати</h1>
+		<div id="drop-zone">Перетащи .stp или .step файлы сюда или кликни <h3>❌.STL ПОКА НЕ ХАВАЕМ❌</h3>
+	</div>
+		<input type="file" id="file-input" accept=".stp,.step" multiple="" hidden="">
+
+			<div class="parts-list" id="parts-list"></div>
+
+			<div class="settings">
+				<h3>Параметры печати</h3>
+
+				<label>Материал:</label>
+				<select id="material">
+					<option value="STANDARD">PLA/PETG/ABS</option>
+					<option value="TPU">❌TPU❌ КОЭФИЦИЕНТ НЕ РАСЧИТАН  </option>
+				</select>
+
+				<label>Высота слоя:</label>
+				<select id="layer-height">
+					<option value="standard">Стандартно (0.2мм)</option>
+					<option value="high">Высокая точность (0.1мм)</option>
+					<option value="very-high">Очень высокая (0.08мм)</option>
+				</select>
+
+				<label>Количество принтеров:</label>
+				<input type="number" id="printers-count" value="1" min="1" step="1">
+    </div>
+
+			<div class="result" id="result"></div>
+
+			<!-- Дисклеймер -->
+			<div id="disclaimer-modal" class="modal">
+				<div class="modal-content">
+					<h2>⚠️ Дисклеймер</h2>
+					<p>
+						Этот калькулятор дает <b>приблизительную оценку</b> времени печати на основе объема модели.
+					</p>
+					<p>Реальное время может отличаться из-за сложности геометрии, поддержек и настроек слайсера. Также отличается от принтера к принтеру</p>
+					<p>Расчеты принципиально отличаются для малых, полнотелых и пустотелых деталей.</p>
+					<p>
+						<b> По малочисленным тестам, среднее расхождение от фактического времени печати ± 18%</b>
+						<br>
+							<small>при стандартных настройках 4 периметра, 15% заполнения</small>
+					</p>
+					<p>
+						<b>Рассчитывайте на 4-6 доступных принтеров, для деталей, превышающих 256мм по одному или более измерению, на 2-3</b>
+					</p>
+					<p>
+						<h3>Для больших партий 240+ машино-часов расчеты производятся оператором</h3>
+					</p>
+					<p>
+						<h2>Опирайтесь на план-график, согласовывайте с руководителем группы 3д печати для печатей свыше 8 часов закладывайте доп. день</h2>
+					</p>
+					<p>
+						<b>Обработка .step происходит локально - это безопасно</b>
+					</p>
+					<p>для orange storm giga 800x800 тут не считаем</p>
+					<button id="close-disclaimer">Понятно</button>
+				</div>
+			</div>
+
+			<script src="./occt-import-js.js"></script>
+			<script src="app.js"></script>
+
+			<marquee behavior="scroll" direction="left" scrollamount="30" style="
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #30D5C8;
+    color: grey;
+    padding: 10px 0;
+    font-weight: bold;
+    font-size: 1.1em;
+    z-index: 100;
+">
+				🚀 СРОЧНО • СРОКИ • СРОЧНЫЕ СРОКИ 🔥 СРОЧНО 😎 ДИСКЛЕЙМЕР МОЖНО БЫЛО ОТКЛЮЧИТЬ НО Я РЕШИЛ ЧТО НЕЛЬЗЯ 😎 МЫ РАЗГОНЯЕМСЯ ⏩ ПОМОГИТЕ 🆘 🚀 СРОЧНО • СРОКИ • СРОЧНЫЕ СРОКИ 🔥 СРОЧНО • МЫ РАЗГОНЯЕМСЯ ⏩ ПОМОГИТЕ 🆘 🚀 СРОЧНО • СРОКИ • СРОЧНЫЕ СРОКИ 🔥 СРОЧНО • МЫ РАЗГОНЯЕМСЯ ⏩ ПОМОГИТЕ 🆘 🚀 СРОЧНО • СРОКИ • СРОЧНЫЕ СРОКИ 🔥 СРОЧНО • МЫ РАЗГОНЯЕМСЯ ⏩ ПОМОГИТЕ 🆘
+			</marquee>
+			</div>	
+		</body>
+</html>
