@@ -51,7 +51,7 @@ fileInput.onchange = (e) => handleFiles(e.target.files);
 
 materialSelect.onchange = calculateAndDisplay;
 layerHeightSelect.onchange = calculateAndDisplay;
-printersCountInput.onchange = (e) => {
+printersCountInput.oninput = (e) => {
     let val = parseInt(e.target.value) || 1;
     if (val > 10) val = 10;
     if (val < 1) val = 1;
