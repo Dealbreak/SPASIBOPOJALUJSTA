@@ -51,7 +51,13 @@ fileInput.onchange = (e) => handleFiles(e.target.files);
 
 materialSelect.onchange = calculateAndDisplay;
 layerHeightSelect.onchange = calculateAndDisplay;
-printersCountInput.oninput = calculateAndDisplay;
+printersCountInput.onchange = (e) => {
+    let val = parseInt(e.target.value) || 1;
+    if (val > 10) val = 10;
+    if (val < 1) val = 1;
+    e.target.value = val;
+    calculateAndDisplay();
+};
 
 async function handleFiles(files) {
     for (const file of files) {
@@ -260,13 +266,7 @@ async function parseStepAndCalcMetrics(uint8Array) {
             totalArea += Math.sqrt(cross[0]*cross[0] + cross[1]*cross[1] + cross[2]*cross[2]) / 2.0;
         }
     }
-    printersCountInput.onchange = (e) => {
-    let val = parseInt(e.target.value) || 1;
-    if (val > 10) val = 10;
-    if (val < 1) val = 1;
-    e.target.value = val;
-    calculateAndDisplay();
-};
+    
     
     const bbVolume = (maxX - minX) * (maxY - minY) * (maxZ - minZ);
     
